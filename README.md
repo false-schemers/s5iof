@@ -1,17 +1,17 @@
-# SIOF (Scheme In One File) - A Minimal R5RS Scheme System
+# S5IOF (Scheme 5 In One File) - A Minimal R5RS Scheme System
                          
-SIOF is a portable interpreter for a subset of the Scheme programming language. 
-It can be built from a single C source file [siof.c](https://raw.githubusercontent.com/false-schemers/siof/master/siof.c); 
+S5IOF is a portable interpreter for a subset of the Scheme programming language. 
+It can be built from a single C source file [s5iof.c](https://raw.githubusercontent.com/false-schemers/s5iof/master/s5iof.c); 
 there are no OS- or hardware-specific parts, no compiler-specific tricks, no dependency on platform-specific building tools. There is no distributive to install: just compile the file with your favorite C compiler, link it with the standard C runtime libraries and be done with it.
 
 ## Installation
 
 There is no installation to speak of; just grab the file and compile it with your favorite C compiler.
 
-Here's how you can compile SIOF on a unix box:
+Here's how you can compile S5IOF on a unix box:
 
 ```
-gcc -o siof -lm -Wall -O3 -DNDEBUG siof.c
+gcc -o s5iof -O3 -DNDEBUG s5iof.c -lm
 ```
 
 Please note that some compilers may issue hundreds of warnings; we recommend to add `-Wno-parentheses-equality` for
@@ -26,15 +26,11 @@ The resulting interpreter has no dependencies and can be run from any location.
 
 ## Scheme Compatibility
 
-SIOF is true to basic Scheme principles -- it features precise garbage collector, supports proper tail recursion, `call/cc`, `dynamic-wind`, multiple return values, and has a hygienic macro system. It is mostly R5RS-compatible, but it has the following known limitations and deviations from the standard:
+S5IOF is true to basic Scheme principles -- it features precise garbage collector, supports proper tail recursion, `call/cc`, `dynamic-wind`, multiple return values, and has a hygienic macro system. It is mostly R5RS-compatible, but it has the following known limitations and deviations from the standard:
 
-  *  there is a simple `define-macro` facility for S-expression rewriting
-  *  `read` and `string->symbol` are case-sensitive
-  *  `eval` is single-argument; environment functions are not implemented
   *  fixnums are limited to 24 bits, flonums are doubles
   *  no support for bignums/rational/complex numbers
-  *  `max` and `min` do not preserve inexactness
-  *  `dynamic-wind` has pre-R^6RS semantics
+  *  `eval` ignores its optional second argument; environment functions are stubs
   *  some run-time errors such as zero division and fixnum overflows trigger asserts in C code unless `NDEBUG` is defined during compilation
   * `transcript-on` and `transcript-off` are not implemented
 
@@ -48,15 +44,13 @@ SIOF supports some popular extensions defined in pre-R^5RS Scheme standards, SRF
 
 ## Origins
 
-SIOF's original code is written in [#F](https://github.com/false-schemers/sharpF), a language for building Scheme-like
+S5IOF's original code is written in [#F](https://github.com/false-schemers/sharpF), a language for building Scheme-like
 systems. Its #F source code can be found there in `examples` directory:
 
-[siof.sf](https://raw.githubusercontent.com/false-schemers/sharpF/master/examples/siof.sf)
+[s5iof.sf](https://raw.githubusercontent.com/false-schemers/sharpF/master/examples/s5iof.sf)
 
-SIOF's on-the-fly compiler is derived from Marc Feeley's Scheme Interpreter (see `gambit/bench/src/scheme.scm` in the [Gambit Scheme repository](https://github.com/gambit/gambit)). Supporting library code comes from #F's [LibS library](https://raw.githubusercontent.com/false-schemers/sharpF/master/lib/libs.sf).
+S5IOF's on-the-fly compiler is derived from Marc Feeley's Scheme Interpreter (see `gambit/bench/src/scheme.scm` in the [Gambit Scheme repository](https://github.com/gambit/gambit)). Supporting library code comes from #F's [LibS library](https://raw.githubusercontent.com/false-schemers/sharpF/master/lib/libs.sf).
 
 ## Family
 
 Please see [S4IOF](https://github.com/false-schemers/s4iof) repository for a smaller system without hygienic macros
-
-
