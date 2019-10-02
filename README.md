@@ -49,7 +49,7 @@ systems. Its #F source code can be found there in `examples` directory:
 
 [s5iof.sf](https://raw.githubusercontent.com/false-schemers/sharpF/master/examples/s5iof.sf)
 
-S5IOF's on-the-fly compiler is derived from Marc Feeley's Scheme Interpreter (see `gambit/bench/src/scheme.scm` in the [Gambit Scheme repository](https://github.com/gambit/gambit)). Supporting library code comes from #F's [LibS library](https://raw.githubusercontent.com/false-schemers/sharpF/master/lib/libs.sf).
+S5IOF's on-the-fly compiler is derived from Marc Feeley's Scheme Interpreter (see `gambit/bench/src/scheme.scm` in the [Gambit Scheme repository](https://github.com/gambit/gambit)). Hygienic macroexpander is derived from Al Petrofsky's alexpander v1.65 (please see the #F source file for the original copyright notice). Supporting library code comes from #F's [LibS library](https://raw.githubusercontent.com/false-schemers/sharpF/master/lib/libs.sf).
 
 ## Family
 
