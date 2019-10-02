@@ -34,7 +34,7 @@ S5IOF is true to basic Scheme principles -- it features precise garbage collecto
   *  some run-time errors such as zero division and fixnum overflows trigger asserts in C code unless `NDEBUG` is defined during compilation
   * `transcript-on` and `transcript-off` are not implemented
 
-SIOF supports some popular extensions defined in pre-R^5RS Scheme standards, SRFIs, and R^6RS/R^7RS libraries:
+SIOF supports some common extensions:
 
   *  `error` (not based on exceptions)
   *  `file-exists?`, `delete-file`, `rename-file`
