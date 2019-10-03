@@ -2,7 +2,7 @@
                          
 S5IOF is a portable interpreter for a subset of the Scheme programming language. 
 It can be built from a single C source file [s5iof.c](https://raw.githubusercontent.com/false-schemers/s5iof/master/s5iof.c); 
-there are no OS- or hardware-specific parts, no compiler-specific tricks, no dependency on platform-specific building tools. There is no distributive to install: just compile the file with your favorite C compiler, link it with the standard C runtime libraries and be done with it.
+there are no OS- or hardware-specific parts, no compiler-specific tricks, no dependency on platform-specific building tools. There is no distributive to install: just compile the file with your favorite C compiler, link it with the standard C runtime libraries and be done with it. For some platforms, precompiled binaries are available (please see [releases](https://github.com/false-schemers/s5iof/releases)).
 
 ## Installation
 
